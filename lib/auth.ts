@@ -1,5 +1,5 @@
 import {Action} from "routing-controllers";
-import User, {jwtToUser} from "../model/user/user";
+import User, {jwtToUser} from "./model/user/user";
 
 export const currentUserChecker = async (action: Action) => {
     const bearer = action.request.headers["authorization"];

@@ -1,5 +1,5 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/ursa/ursa-server:0.0.5', '.' ]
+    args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/ursa/ursa-server:0.0.6', '.' ]
 images:
-  - 'gcr.io/$PROJECT_ID/ursa/ursa-server:0.0.5'
+  - 'gcr.io/$PROJECT_ID/ursa/ursa-server:0.0.6'

@@ -1,8 +1,8 @@
 import {Authorized, Body, CurrentUser, Get, JsonController, Post} from "routing-controllers";
 import {createUser, UserCreate} from "../model/user/user-create";
-import {Service} from "../service";
 import {authUser, UserAuth} from "../model/user/user-auth";
 import User from "../model/user/user";
+import {Service} from "@wosome/taff";
 
 @JsonController("/auth")
 export class UserController {

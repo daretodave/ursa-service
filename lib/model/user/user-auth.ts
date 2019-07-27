@@ -1,9 +1,7 @@
-import {IsBoolean, IsEmail, IsNotEmpty, IsString} from "class-validator";
+import {IsNotEmpty, IsString} from "class-validator";
 import {Transform} from "class-transformer";
-import {toLowerCase} from "../../service";
-import {BadRequestError} from "../../http/error/bad-request";
-import {BCRYPT_ROUNDS} from "../../config";
 import {findUser, userToJWT} from "./user";
+import {BadRequestError} from "@wosome/taff/out/http/error/bad-request";
 
 const B = require('bcryptjs');
 
@@ -51,4 +49,10 @@ export async function authUser(authUser: UserAuth) {
         token: userToJWT(user),
         user: user
     };
+}
+
+function toLowerCase(text) {
+    if (typeof text === 'string') {
+        return text.toLowerCase();
+    }
 }

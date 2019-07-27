@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
         - name: ursa-api
-          image: gcr.io/ursa-app/ursa/ursa-server:0.0.5
+          image: gcr.io/ursa-app/ursa/ursa-server:0.0.6
           ports:
             - containerPort: 8080
           env:

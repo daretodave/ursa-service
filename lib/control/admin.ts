@@ -1,6 +1,6 @@
 import {Authorized, Body, JsonController, Post} from "routing-controllers";
+import {Service} from "@wosome/taff";
 import {createUser, UserCreate} from "../model/user/user-create";
-import {Service} from "../service";
 
 @JsonController("/admin")
 export class AdminController {
