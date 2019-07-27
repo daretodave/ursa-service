@@ -1,0 +1,53 @@
+{
+  "name": "ursa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc -p .",
+    "submit": "gcloud builds submit --config=./gcp.build.yaml .",
+    "deploy:service": "kubectl apply -f ./gcp.service.yaml",
+    "deploy:ingress": "kubectl apply -f ./gcp.ingress.yaml",
+    "clean": "shx rm -rf ./out",
+    "start": "node ./out/main.js",
+    "build": "npm-run-all clean compile"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/koa": "^2.0.49",
+    "@types/koa-bodyparser": "^4.3.0",
+    "@types/koa-router": "^7.0.42",
+    "app-root-path": "^2.2.1",
+    "bcryptjs": "^2.4.3",
+    "class-validator": "^0.9.1",
+    "dotenv": "^8.0.0",
+    "dotenv-defaults": "^1.0.2",
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-multer": "^1.0.2",
+    "koa-router": "^7.4.0",
+    "pg": "^7.12.0",
+    "pg-hstore": "^2.3.3",
+    "pino": "^5.13.1",
+    "pino-pretty": "^3.2.0",
+    "reflect-metadata": "^0.1.13",
+    "routing-controllers": "^0.7.7",
+    "routing-controllers-openapi": "^1.7.0",
+    "sequelize": "^5.10.3",
+    "sequelize-typescript": "^1.0.0-beta.3",
+    "sqlite3": "^4.0.9"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "@types/node": "^12.6.8",
+    "@types/pino": "^5.8.8",
+    "jest": "^24.8.0",
+    "npm-run-all": "^4.1.5",
+    "shx": "^0.3.2",
+    "typescript": "^3.5.3"
+  }
+}

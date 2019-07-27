@@ -1,0 +1,106 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ursa-api
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: ursa-api
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ursa-api
+spec:
+  selector:
+    matchLabels:
+      app: ursa-api
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ursa-api
+    spec:
+      containers:
+        - name: ursa-api
+          image: gcr.io/ursa-app/ursa/ursa-server:0.0.5
+          ports:
+            - containerPort: 8080
+          env:
+          - name: JWT_SECRET
+            valueFrom:
+              configMapKeyRef:
+                name: ursa-api-config
+                key: JWT_SECRET
+          - name: MODE
+            valueFrom:
+              configMapKeyRef:
+                name: ursa-api-config
+                key: MODE
+          - name: DB_SYNC
+            valueFrom:
+              configMapKeyRef:
+                name: ursa-api-config
+                key: DB_SYNC
+          - name: DB_DIALECT
+            valueFrom:
+              configMapKeyRef:
+                name: ursa-api-config
+                key: DB_DIALECT
+          - name: DB_STORAGE
+            valueFrom:
+              configMapKeyRef:
+                name: ursa-api-config
+                key: DB_STORAGE
+          - name: DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: ursa-api-config
+                key: DB_HOST
+          - name: DB_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: ursa-api-config
+                key: DB_PORT
+          - name: DB_USER
+            valueFrom:
+              configMapKeyRef:
+                name: ursa-api-config
+                key: DB_USER
+          - name: DB_PASS
+            valueFrom:
+              configMapKeyRef:
+                name: ursa-api-config
+                key: DB_PASS
+          - name: DB_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: ursa-api-config
+                key: DB_NAME
+          - name: DB_POOL
+            valueFrom:
+              configMapKeyRef:
+                name: ursa-api-config
+                key: DB_POOL
+          - name: BCRYPT_ROUNDS
+            valueFrom:
+              configMapKeyRef:
+                name: ursa-api-config
+                key: BCRYPT_ROUNDS
+          - name: DB_POOL_MAX
+            valueFrom:
+              configMapKeyRef:
+                name: ursa-api-config
+                key: DB_POOL_MAX
+          - name: DB_POOL_MIN
+            valueFrom:
+              configMapKeyRef:
+                name: ursa-api-config
+                key: DB_POOL_MIN
+          - name: DB_POOL_ACQUIRE
+            valueFrom:
+              configMapKeyRef:
+                name: ursa-api-config
+                key: DB_POOL_ACQUIRE

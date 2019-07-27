@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  creationTimestamp: 2016-02-18T18:52:05Z
+  name: ursa-api-config
+  namespace: default
+data:
+  PORT: "8080"
+  MODE: "production"
+  DB_SYNC: "false"
+  DB_DIALECT: "postgres"
+  DB_STORAGE: ""
+  DB_HOST: ""
+  DB_PORT: "5432"
+  DB_USER: "postgres"
+  DB_PASS: ""
+  DB_NAME: "postgres"
+  DB_POOL: ""
+  DB_POOL_MAX: "5"
+  DB_POOL_MIN: "0"
+  DB_POOL_IDLE: "10000"
+  DB_POOL_ACQUIRE: "30000"
+  BCRYPT_ROUNDS: "10"
