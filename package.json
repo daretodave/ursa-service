@@ -23,7 +23,7 @@
     "@wosome/taff": "0.0.9",
     "app-root-path": "^2.2.1",
     "bcryptjs": "^2.4.3",
-    "class-validator": "^0.9.1",
+    "class-validator": "^0.14.0",
     "dotenv": "^8.0.0",
     "dotenv-defaults": "^1.0.2",
     "jsonwebtoken": "^8.5.1",
